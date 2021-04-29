@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 public class TestJdbc {
     public static void main (String args[]){
 
-        String connUrl = "jdbc:mysql://localhost:3306/mysql?serverTimezone=UTC";
+        String connUrl = "jdbc:mysql://localhost:3306/java?serverTimezone=UTC";
         String user = "root";
         String pw = "password";
 
