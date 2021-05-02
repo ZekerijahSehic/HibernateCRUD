@@ -12,6 +12,7 @@ public class ReadStudent {
         Session session = sessionFactory.getCurrentSession();
 
         try {
+
             Student tempStudent = new Student("joe", "malk", "joe@java.com");
 
             session.beginTransaction();
@@ -29,9 +30,10 @@ public class ReadStudent {
 
             session.getTransaction().commit();
 
-
         } finally {
+
             sessionFactory.close();
+
         }
     }
 }

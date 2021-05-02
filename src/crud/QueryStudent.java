@@ -15,6 +15,7 @@ public class QueryStudent {
         Session session = sessionFactory.getCurrentSession();
 
         try {
+
             session.beginTransaction();
 
             List<Student> studentsList = session.createQuery("from Student").list();
@@ -31,7 +32,9 @@ public class QueryStudent {
             session.getTransaction().commit();
 
         } finally {
+
             sessionFactory.close();
+
         }
     }
 

@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateStudent {
+public class UpdateStudent {
     public static void main(String args[]){
 
         SessionFactory sessionFactory = new Configuration().configure().addAnnotatedClass(Student.class).buildSessionFactory();
@@ -13,17 +13,16 @@ public class CreateStudent {
 
         try {
 
-            System.out.println("Create studnet");
-            Student student = new Student("jane", "doe", "jane.doe@java.com");
+            int studentId = 2;
 
+            session = sessionFactory.getCurrentSession();
             session.beginTransaction();
 
-            System.out.println("Saving the student");
-            session.save(student);
+            Student student = session.get(Student.class, studentId);
+
+            student.setLastName("phil");
 
             session.getTransaction().commit();
-
-            System.out.println("Success! ");
 
         } finally {
 
@@ -31,5 +30,4 @@ public class CreateStudent {
 
         }
     }
-
 }
